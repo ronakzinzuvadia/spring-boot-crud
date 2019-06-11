@@ -31,13 +31,12 @@ public class EmployeeController {
 	@RequestMapping("/employee/new")
 	public ModelAndView newEmployee() {
 		ModelAndView view = new ModelAndView("employee/employee-new");
-		view.addObject("employeeUrl", "/employee/create");
 		view.addObject("employee", new Employee());
 		return view;
 	}
 	
 	@RequestMapping("/employee/create")
-	public String createEmployee(@ModelAttribute("employeeVo") Employee employee, BindingResult bindingResult) {
+	public String createEmployee(@ModelAttribute("employee") Employee employee, BindingResult bindingResult) {
 		employeeRepository.save(employee);
 		return "redirect:/";
 	}
@@ -45,7 +44,6 @@ public class EmployeeController {
 	@RequestMapping("/employee/{employeeId}/edit")
 	public ModelAndView editEmployee(@PathVariable("employeeId") long employeeId) {
 		ModelAndView view = new ModelAndView("employee/employee-new");
-		view.addObject("employeeUrl", "/employee/create");
 		Employee employee = employeeRepository.findByEmployeeId(employeeId);
 		view.addObject("employee", employee);
 		return view;

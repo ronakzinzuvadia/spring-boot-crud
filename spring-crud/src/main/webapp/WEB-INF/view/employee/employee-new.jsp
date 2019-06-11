@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h5>New Employee</h5>
-	<form action="${employeeUrl}" method="post">
+	<form action="/employee/create" method="post">
 		<input type="hidden" name="employeeId" value="${employee.employeeId}">
 		<label> Employee Name:&nbsp;&nbsp;<input type="text" name="employeeName" value="${employee.employeeName}"></label><br>
 		<label> Employee Email:&nbsp;&nbsp;<input type="text" name="employeeEmail" value="${employee.employeeEmail}"></label><br>
